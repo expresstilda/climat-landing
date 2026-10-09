@@ -160,3 +160,7 @@ h1,h2,h3,p,a,dd,dt,small,span{overflow-wrap:anywhere}
 .request-showroom h3{font-size:1.05rem;color:#89c7cf}
 .request-showroom p{font-size:1rem;line-height:1.6;color:white;margin-top:12px}
 .request-showroom p.micro{font-size:.83rem;color:#c4d8df;margin-top:8px}
+/* Highlight only the free entry offer. */
+.project-price-card.project-price-paid{background:white;color:var(--ink);border:1px solid var(--line)}
+.project-price-paid .project-price-intro p,.project-price-paid .project-price-metric>span,.project-price-paid .project-price-terms{color:var(--muted)}
+.project-price-paid .project-price-metric,.project-price-paid .project-price-terms{border-color:var(--line)}
