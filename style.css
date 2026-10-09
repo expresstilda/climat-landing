@@ -149,3 +149,9 @@ h1,h2,h3,p,a,dd,dt,small,span{overflow-wrap:anywhere}
 .about-partnership{margin-top:25px;padding-top:23px;border-top:1px solid var(--line)}
 .about-partnership h3{font-size:1.03rem}.about-partnership p{margin-top:11px;font-size:.87rem;color:var(--muted)}
 @media(max-width:780px){.about{grid-template-columns:1fr;gap:30px}.about-experience{padding:26px}.about-experience-label br{display:none}}
+
+/* About section photo placeholder. */
+.about-photo-placeholder{width:100%;aspect-ratio:4/3;min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:30px;border:1px dashed #b9cdd5;border-radius:5px;background:linear-gradient(135deg,#edf2f4,#dce7eb);color:var(--muted);text-align:center}
+.about-photo-placeholder svg{width:64px;height:64px;opacity:.5}
+.about-photo-placeholder span{font-size:1rem;line-height:1.5}
+@media(max-width:780px){.about-photo-placeholder{min-height:0;aspect-ratio:16/10}}
