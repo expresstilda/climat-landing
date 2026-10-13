@@ -28,3 +28,32 @@ function updatePortfolio(){const matching=portfolioCards.filter(card=>portfolioC
 portfolioFilters.forEach(button=>button.addEventListener('click',()=>{portfolioCategory=button.dataset.portfolioFilter;portfolioLimit=3;updatePortfolio();}));
 portfolioMore.addEventListener('click',()=>{portfolioLimit+=3;updatePortfolio();});
 updatePortfolio();
+
+// The gallery slots are ready for actual photographs and captions.
+document.querySelectorAll('[data-case-photo]').forEach(button=>button.addEventListener('click',()=>{
+    const gallery=button.closest('.case-gallery');
+    gallery.querySelector('.case-photo-label').textContent=button.dataset.casePhoto;
+    gallery.querySelector('.case-photo-index').textContent=button.dataset.photoNumber.padStart(2,'0')+' / 04';
+    gallery.querySelector('.case-main-photo').setAttribute('aria-label','Место для фотографии объекта: '+button.dataset.casePhoto);
+    gallery.querySelectorAll('[data-case-photo]').forEach(photo=>{const active=photo===button;photo.classList.toggle('active',active);photo.setAttribute('aria-pressed',String(active));});
+}));
+document.querySelectorAll('[data-calc]').forEach(button=>button.addEventListener('click',()=>{
+    document.querySelector('#calc-area').value=button.dataset.area||'';
+}));
+
+const reviewCards=[...document.querySelectorAll('[data-review-platform]')];
+const reviewFilters=[...document.querySelectorAll('[data-review-filter]')];
+const reviewsMore=document.querySelector('#reviews-more');
+let reviewPlatform='all';
+let reviewLimit=3;
+function updateReviews(){
+    const matching=reviewCards.filter(card=>reviewPlatform==='all'||card.dataset.reviewPlatform===reviewPlatform);
+    reviewCards.forEach(card=>{card.hidden=!matching.includes(card)||matching.indexOf(card)>=reviewLimit;});
+    const shown=Math.min(reviewLimit,matching.length);
+    document.querySelector('#review-count').textContent='Показано '+shown+' из '+matching.length;
+    reviewsMore.hidden=shown>=matching.length;
+    reviewFilters.forEach(button=>{const active=button.dataset.reviewFilter===reviewPlatform;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+}
+reviewFilters.forEach(button=>button.addEventListener('click',()=>{reviewPlatform=button.dataset.reviewFilter;reviewLimit=3;updateReviews();}));
+reviewsMore.addEventListener('click',()=>{reviewLimit+=3;updateReviews();});
+updateReviews();
