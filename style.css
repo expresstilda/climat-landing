@@ -229,22 +229,20 @@ h1,h2,h3,p,a,dd,dt,small,span{overflow-wrap:anywhere}
 @media(max-width:780px){.review-grid{grid-template-columns:1fr}.review-platform{display:block;max-width:none}.project-price-range{max-width:none}.portfolio-demo-intro{margin-top:-10px}.case-card .portfolio-caption{padding:22px}.about-facts{gap:18px}.review-platform-links{width:100%}.platform-rating{flex:1;min-width:170px}}
 @media(max-width:460px){.platform-rating{padding:14px;min-width:0}.platform-avito{min-width:125px}.platform-rating-line{gap:8px}.rating-stars{font-size:1rem}.platform-name{font-size:.83rem}.review-list-footer{align-items:flex-start;flex-direction:column;gap:14px}.about-facts strong{font-size:1.65rem}}
 
-/* Balanced platform links below the review heading. */
-.reviews .reviews-heading{display:block;margin-bottom:28px}
-.reviews-sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:28px}
-.review-source-tile{display:grid;grid-template-columns:48px minmax(0,1fr) 24px;align-items:center;gap:18px;padding:24px;background:white;border:1px solid var(--line);border-radius:6px;transition:border-color .15s}
-.review-source-tile:hover{border-color:var(--teal)}
-.review-source-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--soft)}
-.review-source-yandex{font-size:1.65rem;color:#e74739;font-weight:600}
-.review-source-avito .avito-dots{width:29px;height:29px;gap:4px}
-.review-source-info{display:grid;gap:9px;min-width:0}
-.review-source-info>strong{font-size:1rem;font-weight:600;line-height:1.3}
-.review-source-score{display:flex;align-items:center;flex-wrap:wrap;gap:9px 12px;line-height:1.4;min-height:24px}
-.review-source-score b{font-size:1.08rem;font-weight:600}
-.review-source-score>span:last-child{font-size:.76rem;color:var(--muted)}
-.review-source-description{font-size:.8rem;line-height:1.5;color:var(--muted);min-height:24px;display:flex;align-items:center}
-.review-source-action{font-size:.76rem;line-height:1.5;color:var(--teal)}
-.review-source-arrow{color:var(--teal);font-size:1.4rem;justify-self:end}
-@media(max-width:780px){.reviews-sources{grid-template-columns:1fr;gap:12px}.review-source-tile{padding:20px;gap:15px}}
-@media(max-width:460px){.review-source-tile{grid-template-columns:40px minmax(0,1fr) 18px;padding:18px 16px;gap:12px}.review-source-icon{width:40px;height:40px;border-radius:10px}.review-source-info>strong{font-size:.93rem}.review-source-score{gap:7px 9px}.review-source-score>span:last-child{font-size:.7rem}}
-@media(prefers-reduced-motion:reduce){.review-source-tile{transition:none}}
+/* Compact platform ratings beside the review heading. */
+.reviews .reviews-heading{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;margin-bottom:28px}
+.reviews-platforms{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px}
+.review-rating-badge{display:inline-flex;align-items:center;flex-wrap:wrap;gap:8px 13px;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:white;line-height:1.4;transition:border-color .15s,box-shadow .15s}
+.review-rating-badge:hover{border-color:var(--teal);box-shadow:0 2px 10px #143e4e0a}
+.review-badge-name{display:inline-flex;align-items:center;gap:8px;font-size:1rem;font-weight:600;white-space:nowrap}
+.review-badge-name .avito-dots{width:24px;height:24px;gap:3px;flex-shrink:0}
+.review-map-pin{width:22px;height:22px;fill:#f04c4c;flex-shrink:0}
+.review-map-pin circle{fill:white}
+.review-badge-rating{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.review-badge-rating strong{font-size:1rem;font-weight:600}
+.review-badge-stars{font-size:1.05rem;letter-spacing:.03em;line-height:1;color:#e7b544}
+.review-badge-stars-yandex{background:linear-gradient(to right,#e7b544 98%,#d8e2e6 98%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.review-badge-link{font-size:.7rem;color:var(--teal)}
+@media(max-width:1100px){.reviews .reviews-heading{flex-direction:column;align-items:flex-start;gap:20px}.reviews-platforms{justify-content:flex-start}}
+@media(max-width:460px){.reviews-platforms{width:100%;gap:10px}.review-rating-badge{width:100%;justify-content:space-between;padding:12px}.review-badge-name{font-size:.84rem;gap:6px}.review-badge-rating{gap:7px}.review-badge-rating strong{font-size:.9rem}.review-badge-stars{font-size:.93rem}.review-badge-link{font-size:.66rem}}
+@media(prefers-reduced-motion:reduce){.review-rating-badge{transition:none}}
